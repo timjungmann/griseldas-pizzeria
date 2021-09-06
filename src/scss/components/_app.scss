@@ -1,0 +1,65 @@
+.app-container{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inner-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: $bor-rad auto $bor-rad;
+    grid-template-rows: $bor-rad auto $bor-rad;
+    background: #5E8E5D;
+    .field{
+      background:#CD4E49;
+    }
+    .center-center{
+      overflow: auto;
+      background-color: #DFD6B3;
+      border: $bor;
+      border-bottom-left-radius: $bor-rad;
+      border-top-right-radius: $bor-rad;
+      padding: 20px;
+      // hiding the scroll bars
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+    }
+    .top-center{
+      border-bottom: $bor;
+      border-right: $bor;
+      border-bottom-right-radius:$bor-rad;
+    }
+    .top-right{
+      border-bottom: $bor;
+      border-left: $bor;
+      border-bottom-left-radius:$bor-rad;
+    }
+    .center-left{
+      z-index: 3;
+      border-bottom: $bor;
+      border-right: $bor;
+      border-bottom-right-radius:$bor-rad;
+    }
+    .center-right{
+      border-top: $bor;
+      border-left: $bor;
+      border-top-left-radius:$bor-rad;
+    }
+    .bottom-left{
+      border-top: $bor;
+      border-right: $bor;
+      border-top-right-radius:$bor-rad;
+    }
+    .bottom-center{
+      border-top: $bor;
+      border-left: $bor;
+      border-top-left-radius: $bor-rad;
+    }
+  }
+}
