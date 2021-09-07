@@ -1,0 +1,35 @@
+.admin-container{
+  width: 100%;
+  .admin-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    button{
+      @include button;
+    }
+  }
+  .admin-items, .admin-add{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    .admin-item{
+      border: 1px solid black;
+      border-radius: 3px;
+      padding: 10px;
+      form{
+        .form-row{
+          display: grid;
+          grid-template-columns: 100px auto;
+          gap: 10px;
+          margin-bottom: 10px;
+          display: flex;
+        }
+        button{
+          @include button;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

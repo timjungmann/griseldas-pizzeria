@@ -11,7 +11,7 @@ export default function PizzaItem({pizza, count}) {
   }
 
   return (
-    <div key="" className="pizza-list-item">
+    <div key={count} className="pizza-list-item">
       <div className="pizza-number">
           <h3>{count < 9 ? "0"+(count+1)+"." : (count+1)+"."}</h3>
         </div>
@@ -19,7 +19,7 @@ export default function PizzaItem({pizza, count}) {
           <img src={pizza.image} alt="Pizza Image" />
         </div>
         <div className="pizza-details">
-          <h3>{capitalizeFirstLetter(pizza.name)}</h3>
+          <h3>{capitalizeFirstLetter(pizza.name)} {pizza.isVegan ? <i class="fas fa-seedling"></i> : null}</h3>
           <hr/>
           <p className="pizza-desc">{capitalizeFirstLetter(pizza.description)}</p>
           <p><b>Ingredients:</b> {capitalizeFirstLetter(pizza.ingredients.join(", "))}</p>
