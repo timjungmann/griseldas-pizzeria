@@ -1,2 +1,19 @@
-//Font Imports
-//@include font-face("font name", "../fonts/font-dir-name", 300, $file-formats: ttf);
+@font-face {
+  font-family: 'Pomfret';
+  src:  url('../../assets/fonts/PomfretV2-Regular.woff') format('woff'),
+  url('../../assets/fonts/PomfretV2-Regular.woff2') format('woff2')
+}
+
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4{
+  font-size: 38px;
+  font-family: 'Pomfret','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+  font-size: 48px;
+  // text-shadow: -2px -2px 0 #F2E9C6, 2px -2px 0 #F2E9C6, -2px 2px 0 #F2E9C6, 2px 2px 0 #F2E9C6;
+}

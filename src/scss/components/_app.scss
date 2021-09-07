@@ -10,14 +10,14 @@
     height: 100%;
     display: grid;
     grid-template-columns: $bor-rad auto $bor-rad;
-    grid-template-rows: $bor-rad auto $bor-rad;
+    grid-template-rows: 100px auto 60px;
     background: #5E8E5D;
     .field{
       background:#CD4E49;
     }
     .center-center{
       overflow: auto;
-      background-color: #DFD6B3;
+      background-color: #f2e9c6;
       border: $bor;
       border-bottom-left-radius: $bor-rad;
       border-top-right-radius: $bor-rad;
@@ -34,6 +34,14 @@
       border-bottom: $bor;
       border-right: $bor;
       border-bottom-right-radius:$bor-rad;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .cart-icon{
+        padding-right: 40px;
+        cursor: pointer;
+        font-size: 22px;
+      }
     }
     .top-right{
       border-bottom: $bor;
@@ -60,6 +68,15 @@
       border-top: $bor;
       border-left: $bor;
       border-top-left-radius: $bor-rad;
+      display: flex;
+      justify-content:flex-end;
+      align-items: center;
+      .social-icons{
+        font-size: 24px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, fit-content(100%));
+      }
     }
   }
 }
