@@ -31,11 +31,11 @@ export default function PizzaList({selection, setSelection}) {
 
   function handleSearch(){
     setSearch("");
-    const filteredSelection = pizza.filter(item=>{
+    if(search.length>0){
+      const filteredSelection = pizza.filter(item=>{
       return item.name.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase()) || item.ingredients.join(" ").toLowerCase().includes(search.toLowerCase());
     })
-    console.log(filteredSelection);
-    setSelection(filteredSelection);
+    setSelection(filteredSelection)}
   }
 
   function resetSearch(){
