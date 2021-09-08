@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import CartItem from './CartItem';
 import PizzaContext from '../Context/PizzaContext';
 
 export default function Cart() {
-  const {cart, pizza} = useContext(PizzaContext);
+  const {cart, cartTotal} = useContext(PizzaContext);
 
-  const cartItems = pizza.map((item, index)=>{
+
+  const cartItems = cart.pizzas.map((item, index)=>{
     return <CartItem pizza={item} count={index}/>
   })
 
@@ -16,8 +17,10 @@ export default function Cart() {
       </div>
       {cartItems}
       <div className="cart-footer">
-        <h2>Total: 999.99 €</h2>
-        <button>Order</button>
+        <div className="cart-footer-inner">
+          <h2>Total: {cartTotal === 0 ? "0.00" : Math.round((cartTotal + Number.EPSILON) * 100) / 100} €</h2>
+          <button>Order</button>
+        </div>
       </div>
     </div>
   )

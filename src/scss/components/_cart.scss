@@ -4,6 +4,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    .name{
+      margin-right: 20px;
+    }
     .price{
       display: flex;
       align-items: center;
@@ -28,12 +31,19 @@
     }
   }
   .cart-footer{
-    h2{
-      text-align:end;
-      margin-right: 20px;
-    }
-    button{
-      @include button;
+    display: flex;
+    justify-content: flex-end;
+    .cart-footer-inner{
+      h2{
+        text-align:end;
+        margin-right: 20px;
+      }
+      button{
+        @include button;
+        float:right;
+        width: 100px;
+        margin: 10px 20px 0 0;
+      }
     }
   }
   hr{

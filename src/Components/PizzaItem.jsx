@@ -1,9 +1,8 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import PizzaContext from '../Context/PizzaContext';
-import CartItem from './CartItem';
 
 export default function PizzaItem({pizza, count}) {
-  const {cart, setCart} = useContext(PizzaContext);
+  const {cart, setCart, cartTotal, setCartTotal} = useContext(PizzaContext);
 
   function capitalizeFirstLetter(item){
     const newItem = item.toLowerCase()
@@ -14,6 +13,7 @@ export default function PizzaItem({pizza, count}) {
   }
 
   function addToCart(){
+    setCartTotal(cartTotal+pizza.price)
     if(cart.pizzas.length === 0){
       async function createCart(){
         const fetchedData = await(await fetch("http://localhost:5000/cart",{
@@ -36,22 +36,6 @@ export default function PizzaItem({pizza, count}) {
       updateCart();
     }
   }
-
-  
-    // if(cart.pizzas.length === 1){
-      console.log(cart);
-  
-    // } else {
-    //   async function updateCart(){
-    //     const newCart = {pizzas: [...cart.pizzas]};
-    //     const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}`,{
-    //       method: "PUT",
-    //       headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
-    //       body: JSON.stringify(newCart)}
-    //     )).json();
-    //   };
-    //   updateCart();
-    // }
   
 
   return (

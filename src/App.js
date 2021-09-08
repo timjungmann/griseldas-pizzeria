@@ -9,6 +9,7 @@ function App() {
   const [pizza, setPizza] = useState([]);
   const [selection, setSelection] = useState([]);
   const [cart, setCart] = useState({pizzas:[]});
+  const [cartTotal, setCartTotal] = useState(0);
 
   useState(async()=>{
     const data = await (await fetch("http://localhost:5000/pizzas")).json();
@@ -49,7 +50,7 @@ function App() {
           <div className="top-right field"></div>
           <div className="center-left field"></div>
           <div className="center-center">
-            <PizzaContext.Provider value={{pizza, cart, setCart}}>
+            <PizzaContext.Provider value={{pizza, cart, setCart, cartTotal, setCartTotal}}>
               <Switch>
                 <Route path="/" exact>
                   <PizzaList selection={selection} setSelection={setSelection}/>

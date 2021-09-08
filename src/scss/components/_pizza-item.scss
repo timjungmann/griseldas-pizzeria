@@ -58,6 +58,11 @@
           font-size: 18px;
         }
       }
+      .order{
+        button{
+          transition: border-radius .4s;
+        }
+      }
     }
   }
 }

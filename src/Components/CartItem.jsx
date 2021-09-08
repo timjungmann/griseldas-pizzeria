@@ -9,14 +9,21 @@ export default function CartItem({pizza, count}) {
     return newItem;
   }
 
+  async function deleteFromCart(){
+    const fetchedData = await(await fetch(`http://localhost:5000/cart/${pizza._id}`,{
+      method: "DELETE",
+      headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"}}
+    )).json();
+  };
+
   return (
     <>
       <div key={count} className="cart-item">
-        <div className="pizza-details">
+        <div className="name">
           <h3>{count < 9 ? "0"+(count+1)+"." : (count+1)+"."} {capitalizeFirstLetter(pizza.name)} </h3>
         </div>
         <div className="price">
-          <p>❌</p>
+          <p onClick={deleteFromCart}>❌</p>
           <input type="number" name="amount" value="1" min="1" max="99" autoComplete="off"/>
           <h4>{pizza.price} €</h4>
         </div>
