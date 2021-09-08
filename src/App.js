@@ -25,12 +25,12 @@ function App() {
         <div className="inner-container">
           <div className="top-left field"></div>
           <div className="top-center field">
+          <Link to="/">
             <div className="logo-image">
               <img src={process.env.PUBLIC_URL + "kumamon.png"} alt="Kumamon Logo"/>
-              <Link to="/">
                 <h1>Kumamon's Pizzeria</h1>
-              </Link>
             </div>
+          </Link>
             <div className="header-menu">
               <Link to="/" exact>
                 <p>Menu</p>

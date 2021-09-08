@@ -22,8 +22,10 @@ export default function PizzaItem({pizza, count}) {
           body: JSON.stringify({pizzas:[pizza]})}
         )).json();
         setCart(fetchedData);
-      };
+        };
+
       createCart();
+
     } else {
       async function updateCart(){
         const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}`,{
