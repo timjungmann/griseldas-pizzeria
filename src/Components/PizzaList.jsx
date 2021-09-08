@@ -31,11 +31,11 @@ export default function PizzaList({selection, setSelection}) {
 
   function handleSearch(){
     setSearch("");
-    const filteredSelection = pizza.filter(item=>{
+    if(search.length>0){
+      const filteredSelection = pizza.filter(item=>{
       return item.name.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase()) || item.ingredients.join(" ").toLowerCase().includes(search.toLowerCase());
     })
-    console.log(filteredSelection);
-    setSelection(filteredSelection);
+    setSelection(filteredSelection)}
   }
 
   function resetSearch(){
@@ -50,8 +50,8 @@ export default function PizzaList({selection, setSelection}) {
         <h2>Our menu:</h2>
         <div className="search-container">
           <input type="text" name="search" id="search" placeholder="&#128270; search" autoComplete="off" value={search} onChange={searchChange}/>
-          <button onClick={handleSearch}>search</button>
-          <button onClick={resetSearch}>reset</button>
+          <button onClick={handleSearch} id="search-button">search</button>
+          <button onClick={resetSearch} id="reset-button">reset</button>
         </div>
         <div className="vegan-check">
           <input type="checkbox" name="vegan" id="vegan" onChange={veganChange} checked={vegan}/>
