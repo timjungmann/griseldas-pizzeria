@@ -3,3 +3,11 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin button{
+  cursor:pointer;
+  background-color: #e9bd2b;
+  border:none;
+  border-radius: 4px;
+  padding: 10px;
+}
