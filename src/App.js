@@ -8,6 +8,7 @@ import Cart from "./Components/Cart";
 function App() {
   const [pizza, setPizza] = useState([]);
   const [selection, setSelection] = useState([]);
+  const [cart, setCart] = useState({pizzas:[]});
 
   useState(async()=>{
     const data = await (await fetch("http://localhost:5000/pizzas")).json();
@@ -42,13 +43,13 @@ function App() {
               </Link>
             </div>
             <div className="cart-icon">
-              0 <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
+              {cart.pizzas.length} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
             </div>
           </div>
           <div className="top-right field"></div>
           <div className="center-left field"></div>
           <div className="center-center">
-            <PizzaContext.Provider value={{pizza}}>
+            <PizzaContext.Provider value={{pizza, cart, setCart}}>
               <Switch>
                 <Route path="/" exact>
                   <PizzaList selection={selection} setSelection={setSelection}/>

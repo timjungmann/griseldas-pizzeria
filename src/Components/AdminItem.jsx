@@ -19,14 +19,7 @@ export default function AdminItem({pizza, count}) {
 
   function submitHandler(e){
     e.preventDefault();
-    const pizzaData = {
-      name: name,
-      description: description,
-      ingredients:ingredients,
-      image:image,
-      price:price,
-      isVegan:vegan
-    };
+    const pizzaData = {name: name, description: description, ingredients:ingredients, image:image, price:price, isVegan:vegan};
     async function updatePizza(){
       const fetchedData = await(await fetch(`http://localhost:5000/pizzas/${pizza._id}`,{
         method: "PUT",
