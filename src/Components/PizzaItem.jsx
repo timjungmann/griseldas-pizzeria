@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import PizzaContext from '../Context/PizzaContext';
+import CartItem from './CartItem';
 
 export default function PizzaItem({pizza, count}) {
   const {cart, setCart} = useContext(PizzaContext);
@@ -13,8 +14,45 @@ export default function PizzaItem({pizza, count}) {
   }
 
   function addToCart(){
-    setCart({pizzas:[...cart.pizzas, pizza.name]});
+    if(cart.pizzas.length === 0){
+      async function createCart(){
+        const fetchedData = await(await fetch("http://localhost:5000/cart",{
+          method: "POST",
+          headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+          body: JSON.stringify({pizzas:[pizza]})}
+        )).json();
+        setCart(fetchedData);
+      };
+      createCart();
+    } else {
+      async function updateCart(){
+        const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}`,{
+          method: "PUT",
+          headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+          body: JSON.stringify({...cart, pizzas:[...cart.pizzas, pizza]})}
+        )).json();
+        setCart(fetchedData);
+      };
+      updateCart();
+    }
   }
+
+  
+    // if(cart.pizzas.length === 1){
+      console.log(cart);
+  
+    // } else {
+    //   async function updateCart(){
+    //     const newCart = {pizzas: [...cart.pizzas]};
+    //     const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}`,{
+    //       method: "PUT",
+    //       headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+    //       body: JSON.stringify(newCart)}
+    //     )).json();
+    //   };
+    //   updateCart();
+    // }
+  
 
   return (
     <div key={count} className="pizza-list-item">
@@ -40,7 +78,7 @@ export default function PizzaItem({pizza, count}) {
               borderTopRightRadius: Math.ceil(Math.random()*(100-60)+60),
               borderBottomLeftRadius: Math.ceil(Math.random()*(100-60)+60),
               borderBottomRightRadius: Math.ceil(Math.random()*(100-60)+60)
-              }} onClick={addToCart}>Order</button>
+              }} onClick={()=>addToCart()}>Order</button>
           </div>
         </div>
       </div>
