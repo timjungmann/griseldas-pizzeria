@@ -17,7 +17,7 @@ export default function PizzaList({selection, setSelection}) {
     setVegan(!vegan);
     if(!vegan){
       const veganPizzas = selection.filter(item=>{
-        return item.isVegan==true;
+        return item.isVegan===true;
       })
       setSelection(veganPizzas);
     } else{
@@ -54,7 +54,7 @@ export default function PizzaList({selection, setSelection}) {
           <button onClick={resetSearch}>reset</button>
         </div>
         <div className="vegan-check">
-          <input type="checkbox" name="vegan" id="vegan" value={vegan} onChange={veganChange}/>
+          <input type="checkbox" name="vegan" id="vegan" onChange={veganChange} checked={vegan}/>
           <label htmlFor="vegan">vegan <i class="fas fa-seedling"></i></label>
         </div>
       </div>

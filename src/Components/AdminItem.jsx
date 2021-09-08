@@ -7,27 +7,27 @@ export default function AdminItem({pizza, count}) {
       <form>
         <div className="form-row">
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" value={pizza.name}/>
+          <input type="text" id="name" value={pizza.name} autoComplete="off"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="description">Description:</label>
-          <input type="text" id="description" value={pizza.description}/>
+          <input type="text" id="description" value={pizza.description} autoComplete="off"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="ingredients">Ingredients:</label>
-          <input type="text" id="ingredients" value={pizza.ingredients}/>
+          <input type="text" id="ingredients" value={pizza.ingredients} autoComplete="off"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="image">Image URL:</label>
-          <input type="text" id="image" value={pizza.image}/>
+          <input type="text" id="image" value={pizza.image} autoComplete="off"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="price">Price:</label>
-          <input type="text" id="price" value={pizza.price}/>
+          <input type="text" id="price" value={pizza.price} autoComplete="off"/>
         </div>
 
         <div className="form-row">
