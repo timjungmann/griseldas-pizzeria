@@ -50,8 +50,8 @@ export default function PizzaList({selection, setSelection}) {
         <h2>Our menu:</h2>
         <div className="search-container">
           <input type="text" name="search" id="search" placeholder="&#128270; search" autoComplete="off" value={search} onChange={searchChange}/>
-          <button onClick={handleSearch}>search</button>
-          <button onClick={resetSearch}>reset</button>
+          <button onClick={handleSearch} id="search-button">search</button>
+          <button onClick={resetSearch} id="reset-button">reset</button>
         </div>
         <div className="vegan-check">
           <input type="checkbox" name="vegan" id="vegan" onChange={veganChange} checked={vegan}/>

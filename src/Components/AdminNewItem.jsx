@@ -8,17 +8,36 @@ export default function AdminNewItem() {
   const [price, setPrice] = useState("");
   const [vegan, setVegan] = useState(false);
 
+  // function submitHandler(e){
+  //   e.preventDefault();
+  //   addPizza();
+  //   setName("");
+  //   setDescription("");
+  //   setIngredients("");
+  //   setImage("");
+  //   setPrice("");
+  //   setVegan(false);
+  //   console.log(name, description, ingredients, image, price, vegan)
+  // }
+
   function submitHandler(e){
     e.preventDefault();
+    const newPizza = {name: name, description: description, ingredients:ingredients, image:image, price:price, isVegan:vegan};
+    async function addPizza(){
+      const fetchedData = await(await fetch("http://localhost:5000/pizzas",{
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+        body: JSON.stringify(newPizza)}
+      )).json();
+    };
+    addPizza();
     setName("");
     setDescription("");
     setIngredients("");
     setImage("");
     setPrice("");
     setVegan(false);
-    console.log(name, description, ingredients, image, price, vegan)
-  }
-
+  };
 
   return (
     <div className="admin-item new">
