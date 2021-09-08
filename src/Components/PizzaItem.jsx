@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react';
+import PizzaContext from '../Context/PizzaContext';
 
 export default function PizzaItem({pizza, count}) {
+  const {cart, setCart} = useContext(PizzaContext);
 
   function capitalizeFirstLetter(item){
     const newItem = item.toLowerCase()
@@ -8,6 +10,10 @@ export default function PizzaItem({pizza, count}) {
     .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
     .join(' ');
     return newItem;
+  }
+
+  function addToCart(){
+    setCart({pizzas:[...cart.pizzas, pizza.name]});
   }
 
   return (
@@ -34,7 +40,7 @@ export default function PizzaItem({pizza, count}) {
               borderTopRightRadius: Math.ceil(Math.random()*(100-60)+60),
               borderBottomLeftRadius: Math.ceil(Math.random()*(100-60)+60),
               borderBottomRightRadius: Math.ceil(Math.random()*(100-60)+60)
-              }}>Order</button>
+              }} onClick={addToCart}>Order</button>
           </div>
         </div>
       </div>

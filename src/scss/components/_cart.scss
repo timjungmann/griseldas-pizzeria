@@ -10,9 +10,10 @@
       h4{
         width: 120px;
         text-align: end;
+        margin-right: 20px;
       }
       input{
-        margin-right: 20px;
+        margin: 0 20px;
         font-size: 18px;
         background-color: rgba(255, 255, 255, .4);
         border: none;
@@ -24,6 +25,15 @@
           background-color: rgba(255, 255, 255, .7);
         }
       }
+    }
+  }
+  .cart-footer{
+    h2{
+      text-align:end;
+      margin-right: 20px;
+    }
+    button{
+      @include button;
     }
   }
   hr{
