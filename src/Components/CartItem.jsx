@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react';
+import PizzaContext from '../Context/PizzaContext';
 
 export default function CartItem({pizza, count}) {
+  const {cart} = useContext(PizzaContext);
+
   function capitalizeFirstLetter(item){
     const newItem = item.toLowerCase()
     .split(' ')
@@ -10,7 +13,7 @@ export default function CartItem({pizza, count}) {
   }
 
   async function deleteFromCart(){
-    const fetchedData = await(await fetch(`http://localhost:5000/cart/${pizza._id}`,{
+    const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}/${pizza._id}`,{
       method: "DELETE",
       headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"}}
     )).json();
