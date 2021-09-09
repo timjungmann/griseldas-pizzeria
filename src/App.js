@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import PizzaList from "./Components/PizzaList";
 import PizzaContext from "./Context/PizzaContext";
@@ -10,6 +10,17 @@ function App() {
   const [selection, setSelection] = useState([]);
   const [cart, setCart] = useState({pizzas:[]});
   const [cartTotal, setCartTotal] = useState(0);
+  const [cartItems, setCartItems] = useState(0);
+
+  useEffect(() => {
+    function getCartItems(){
+      setCartItems(0);
+      cart.pizzas.map(item=>{
+        return setCartItems(cartItems+item.amount)
+      });
+    };
+    getCartItems();
+  }, [cart]);
 
   useState(async()=>{
     const data = await (await fetch("http://localhost:5000/pizzas")).json();
@@ -33,7 +44,7 @@ function App() {
               </Link>
             </div>
             <div className="header-menu">
-              <Link to="/" exact>
+              {/* <Link to="/" exact>
                 <p>Menu</p>
               </Link>
               <Link to="/admin">
@@ -41,10 +52,10 @@ function App() {
               </Link>
               <Link to="/cart">
                 <p>Cart</p>
-              </Link>
+              </Link> */}
             </div>
             <div className="cart-icon">
-              {cart.pizzas.length} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
+              {cartItems} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
             </div>
           </div>
           <div className="top-right field"></div>

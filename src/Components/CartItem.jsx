@@ -19,6 +19,10 @@ export default function CartItem({pizza, count}) {
     )).json();
   };
 
+  function changeAmount(){
+    
+  }
+
   return (
     <>
       <div key={count} className="cart-item">
@@ -27,7 +31,7 @@ export default function CartItem({pizza, count}) {
         </div>
         <div className="price">
           <p onClick={deleteFromCart}>❌</p>
-          <input type="number" name="amount" value="1" min="1" max="99" autoComplete="off"/>
+          <input type="number" name="amount" value={pizza.amount} min="1" max="99" autoComplete="off" onChange={changeAmount}/>
           <h4>{pizza.price} €</h4>
         </div>
       </div>

@@ -12,31 +12,6 @@ export default function PizzaItem({pizza, count}) {
     return newItem;
   }
 
-  // function addToCart(){
-  //   setCartTotal(cartTotal+pizza.price)
-  //   if(cart.pizzas.length === 0){
-  //     async function createCart(){
-  //       const fetchedData = await(await fetch("http://localhost:5000/cart",{
-  //         method: "POST",
-  //         headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
-  //         body: JSON.stringify({pizzas:[pizza]})}
-  //       )).json();
-  //       setCart(fetchedData);
-  //     };
-  //     createCart();
-  //   } else {
-  //     async function updateCart(){
-  //       const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}`,{
-  //         method: "PUT",
-  //         headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
-  //         body: JSON.stringify({...cart, pizzas:[...cart.pizzas, pizza]})}
-  //       )).json();
-  //       setCart(fetchedData);
-  //     };
-  //     updateCart();
-  //   }
-  // }
-
   function addToCart(){
     setCartTotal(cartTotal+pizza.price)
     if(cart.pizzas.length === 0){
