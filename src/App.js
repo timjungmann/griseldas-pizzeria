@@ -12,15 +12,15 @@ function App() {
   const [cartTotal, setCartTotal] = useState(0);
   const [cartItems, setCartItems] = useState(0);
 
-  useEffect(() => {
-    function getCartItems(){
-      setCartItems(0);
-      cart.pizzas.map(item=>{
-        return setCartItems(cartItems+item.amount)
-      });
-    };
-    getCartItems();
-  }, [cart]);
+  // useEffect(() => {
+  //   function getCartItems(){
+  //     setCartItems(0);
+  //     cart.pizzas.map(item=>{
+  //       return setCartItems(cartItems+item.amount)
+  //     });
+  //   };
+  //   getCartItems();
+  // }, [cart]);
 
   useState(async()=>{
     const data = await (await fetch("http://localhost:5000/pizzas")).json();
@@ -44,7 +44,7 @@ function App() {
               </Link>
             </div>
             <div className="header-menu">
-              {/* <Link to="/" exact>
+              <Link to="/" exact>
                 <p>Menu</p>
               </Link>
               <Link to="/admin">
@@ -52,7 +52,7 @@ function App() {
               </Link>
               <Link to="/cart">
                 <p>Cart</p>
-              </Link> */}
+              </Link>
             </div>
             <div className="cart-icon">
               {cartItems} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>

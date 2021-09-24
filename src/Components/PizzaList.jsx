@@ -7,8 +7,6 @@ export default function PizzaList({selection, setSelection}) {
   const [vegan, setVegan] = useState(false);
   const [search, setSearch] = useState("");
 
-  console.log(pizza);
-
   const pizzaItems = selection.map((item, index)=>{
     return <PizzaItem pizza={item} count={index}/>
   })
@@ -25,17 +23,19 @@ export default function PizzaList({selection, setSelection}) {
     }
   }
 
-  function searchChange(e){
-    setSearch(e.target.value);
-  }
-
   function handleSearch(){
     setSearch("");
     if(search.length>0){
       const filteredSelection = pizza.filter(item=>{
       return item.name.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase()) || item.ingredients.join(" ").toLowerCase().includes(search.toLowerCase());
-    })
-    setSelection(filteredSelection)}
+      })
+      if(vegan){
+        const filteredAndVegan = filteredSelection.filter(item=>{
+          return item.isVegan===true;
+        })
+        setSelection(filteredAndVegan);
+      } else setSelection(filteredSelection)
+    }
   }
 
   function resetSearch(){
@@ -49,7 +49,7 @@ export default function PizzaList({selection, setSelection}) {
       <div className="pizza-list-header">
         <h2>Our menu:</h2>
         <div className="search-container">
-          <input type="text" name="search" id="search" placeholder="&#128270; search" autoComplete="off" value={search} onChange={searchChange}/>
+          <input type="text" name="search" id="search" placeholder="&#128270; search" autoComplete="off" value={search} onChange={e=>setSearch(e.target.value)}/>
           <button onClick={handleSearch} id="search-button">Search</button>
           <button onClick={resetSearch} id="reset-button">Reset</button>
         </div>
