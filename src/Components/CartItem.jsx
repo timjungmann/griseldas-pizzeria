@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import PizzaContext from '../Context/PizzaContext';
 
 export default function CartItem({pizza, count}) {
-  const {cart} = useContext(PizzaContext);
+  const {cart, setCart} = useContext(PizzaContext);
 
   function capitalizeFirstLetter(item){
     const newItem = item.toLowerCase()
@@ -19,8 +19,15 @@ export default function CartItem({pizza, count}) {
     )).json();
   };
 
-  function changeAmount(){
-    
+  function changeAmount(e){
+    const foundPizza = cart.pizzas.find(item=>item._id === pizza._id);
+    if(foundPizza){
+      const foundIndex = cart.pizzas.indexOf(foundPizza);
+      const updatedCart = {...cart};
+      const updatedPizza = {...foundPizza, quantity:+foundPizza.quantity+1};
+      updatedCart.pizzas.splice(foundIndex,1,updatedPizza);
+      setCart({pizzas:[...updatedCart.pizzas]})
+    }
   }
 
   return (
@@ -31,7 +38,7 @@ export default function CartItem({pizza, count}) {
         </div>
         <div className="price">
           <p onClick={deleteFromCart}>❌</p>
-          <input type="number" name="amount" value={pizza.amount} min="1" max="99" autoComplete="off" onChange={changeAmount}/>
+          <input type="number" name="amount" value={pizza.quantity} min="1" max="99" autoComplete="off" onChange={changeAmount}/>
           <h4>{pizza.price} €</h4>
         </div>
       </div>

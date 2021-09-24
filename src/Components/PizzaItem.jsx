@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import PizzaContext from '../Context/PizzaContext';
 
 export default function PizzaItem({pizza, count}) {
-  const {cart, setCart, cartTotal, setCartTotal} = useContext(PizzaContext);
+  const {cart, setCart} = useContext(PizzaContext);
 
   function capitalizeFirstLetter(item){
     const newItem = item.toLowerCase()
@@ -13,16 +13,16 @@ export default function PizzaItem({pizza, count}) {
   }
 
   function addToCart(){
-    // setCartTotal(cartTotal+pizza.price);
     const foundPizza = cart.pizzas.find(item=>item._id === pizza._id);
     if(foundPizza){
-      const updatedPizza = {...foundPizza, quantity:foundPizza.quantity+1}
-      const filteredCart = cart.pizzas.filter(item=>item._id !== pizza._id);
-      setCart({pizzas:[...filteredCart, updatedPizza]})
+      const foundIndex = cart.pizzas.indexOf(foundPizza);
+      const updatedCart = {...cart};
+      const updatedPizza = {...foundPizza, quantity:foundPizza.quantity+1};
+      updatedCart.pizzas.splice(foundIndex,1,updatedPizza);
+      setCart({pizzas:[...updatedCart.pizzas]})
     } else {
       setCart({pizzas:[...cart.pizzas, {...pizza, quantity:1}]})
     }
-    console.log("CAAAART", cart);
   }
   
 

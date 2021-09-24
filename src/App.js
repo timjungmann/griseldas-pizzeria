@@ -11,15 +11,13 @@ function App() {
   const [cart, setCart] = useState({pizzas:[]});
   const [cartTotal, setCartTotal] = useState(0);
 
-  // useEffect(() => {
-  //   function getCartItems(){
-  //     setCartItems(0);
-  //     cart.pizzas.map(item=>{
-  //       return setCartItems(cartItems+item.amount)
-  //     });
-  //   };
-  //   getCartItems();
-  // }, [cart]);
+  useEffect(()=>{
+    let newCartTotal = 0;
+    cart.pizzas.map(item=>{
+      newCartTotal += (item.quantity*item.price);
+      setCartTotal(newCartTotal);
+    })
+  }, [cart]);
 
   useState(async()=>{
     const data = await (await fetch("http://localhost:5000/pizzas")).json();
