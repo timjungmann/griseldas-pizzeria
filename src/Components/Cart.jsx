@@ -6,7 +6,7 @@ export default function Cart() {
   const {cart, cartTotal} = useContext(PizzaContext);
 
 
-  console.log(cart);
+  console.log("CART LOG:", cart);
   const cartItems = cart.pizzas.map((item, index)=>{
     return <CartItem pizza={item} count={index}/>
   })

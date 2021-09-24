@@ -13,45 +13,16 @@ export default function PizzaItem({pizza, count}) {
   }
 
   function addToCart(){
-    setCartTotal(cartTotal+pizza.price)
-    if(cart.pizzas.length === 0){
-      async function createCart(){
-        const fetchedData = await(await fetch("http://localhost:5000/cart",{
-          method: "POST",
-          headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
-          body: JSON.stringify({pizzas:[{...pizza, amount:1}]})}
-        )).json();
-        setCart(fetchedData);
-      };
-      createCart();
+    // setCartTotal(cartTotal+pizza.price);
+    const foundPizza = cart.pizzas.find(item=>item._id === pizza._id);
+    if(foundPizza){
+      const updatedPizza = {...foundPizza, quantity:foundPizza.quantity+1}
+      const filteredCart = cart.pizzas.filter(item=>item._id !== pizza._id);
+      setCart({pizzas:[...filteredCart, updatedPizza]})
     } else {
-      const foundPizza = cart.pizzas.find(item=>item._id === pizza._id);
-      let someData;
-      if(foundPizza){
-        let someOtherData = cart.pizzas.map(item=>{
-          console.log(item.amount);
-          if(item._id === pizza._id){
-            return {...item, amount:item.amount+1}
-          }
-          else{
-            return item
-          }
-        })
-        someData = {...cart, pizzas:someOtherData}
-      } else {
-        someData = {...cart, pizzas:[...cart.pizzas, {...pizza, amount:1}]}
-      }
-      async function updateCart(){
-        console.log(someData);
-        const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}`,{
-          method: "PUT",
-          headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
-          body: JSON.stringify(someData)}
-        )).json();
-        setCart(fetchedData);
-      };
-      updateCart();
+      setCart({pizzas:[...cart.pizzas, {...pizza, quantity:1}]})
     }
+    console.log("CAAAART", cart);
   }
   
 
@@ -79,7 +50,7 @@ export default function PizzaItem({pizza, count}) {
               borderTopRightRadius: Math.ceil(Math.random()*(100-60)+60),
               borderBottomLeftRadius: Math.ceil(Math.random()*(100-60)+60),
               borderBottomRightRadius: Math.ceil(Math.random()*(100-60)+60)
-              }} onClick={()=>addToCart()}>Order</button>
+              }} onClick={addToCart}>Order</button>
           </div>
         </div>
       </div>

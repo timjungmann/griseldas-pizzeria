@@ -10,7 +10,6 @@ function App() {
   const [selection, setSelection] = useState([]);
   const [cart, setCart] = useState({pizzas:[]});
   const [cartTotal, setCartTotal] = useState(0);
-  const [cartItems, setCartItems] = useState(0);
 
   // useEffect(() => {
   //   function getCartItems(){
@@ -55,7 +54,7 @@ function App() {
               </Link>
             </div>
             <div className="cart-icon">
-              {cartItems} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
+              99 <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
             </div>
           </div>
           <div className="top-right field"></div>
