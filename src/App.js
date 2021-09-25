@@ -13,10 +13,13 @@ function App() {
 
   useEffect(()=>{
     let newCartTotal = 0;
-    cart.pizzas.map(item=>{
+    if(cart.pizzas.length === 0) {
+      setCartTotal(0)
+    } else {
+      cart.pizzas.map(item=>{
       newCartTotal += (item.quantity*item.price);
       setCartTotal(newCartTotal);
-    })
+    })}
   }, [cart]);
 
   useState(async()=>{
@@ -52,7 +55,7 @@ function App() {
               </Link>
             </div>
             <div className="cart-icon">
-              99 <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
+              {cart.pizzas.length} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
             </div>
           </div>
           <div className="top-right field"></div>
@@ -76,6 +79,7 @@ function App() {
           <div className="bottom-left field"></div>
           <div className="bottom-center field">
             <div className="social-icons">
+              <small>find us on:</small>
               <i class="fab fa-instagram"></i>
               <i class="fab fa-twitter"></i>
               <i class="fab fa-facebook-square"></i>

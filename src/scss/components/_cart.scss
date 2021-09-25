@@ -1,6 +1,7 @@
 .cart-container{
   width: 100%;
   .cart-item{
+    padding: 10px 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -8,24 +9,37 @@
       margin-right: 20px;
     }
     .price{
+      width: 500px;
       display: flex;
       align-items: center;
-      h4{
-        width: 120px;
-        text-align: end;
-        margin-right: 20px;
-      }
-      input{
-        margin: 0 20px;
-        font-size: 18px;
-        background-color: rgba(255, 255, 255, .4);
-        border: none;
-        padding: 10px;
-        border-radius: 4px;
-        width: 60px;
-        &:focus{
-          outline:none;
-          background-color: rgba(255, 255, 255, .7);
+      justify-content:space-between;
+      .quantity-input{
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        .delete-button{
+          margin: 0 20px;
+          cursor:pointer;
+          user-select: none;
+        }
+        .multiplied{
+          margin: 0 20px;
+        }
+        h4{
+          text-align: end;
+          margin-right: 20px;
+        }
+        input{
+          font-size: 18px;
+          background-color: rgba(255, 255, 255, .4);
+          border: none;
+          padding: 10px;
+          border-radius: 4px;
+          width: 60px;
+          &:focus{
+            outline:none;
+            background-color: rgba(255, 255, 255, .7);
+          }
         }
       }
     }
@@ -42,7 +56,7 @@
         @include button;
         float:right;
         width: 100px;
-        margin: 10px 20px 0 0;
+        margin: 10px 20px 10px 0;
       }
     }
   }

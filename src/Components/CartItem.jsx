@@ -13,10 +13,10 @@ export default function CartItem({pizza, count}) {
   }
 
   async function deleteFromCart(){
-    const fetchedData = await(await fetch(`http://localhost:5000/cart/${cart._id}/${pizza._id}`,{
-      method: "DELETE",
-      headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"}}
-    )).json();
+    const deletedFromCart = cart.pizzas.filter(item=>{
+      return item._id !== pizza._id;
+    })
+    setCart({pizzas:[...deletedFromCart]})
   };
 
   function changeAmount(e){
@@ -24,7 +24,7 @@ export default function CartItem({pizza, count}) {
     if(foundPizza){
       const foundIndex = cart.pizzas.indexOf(foundPizza);
       const updatedCart = {...cart};
-      const updatedPizza = {...foundPizza, quantity:+foundPizza.quantity+1};
+      const updatedPizza = {...foundPizza, quantity:e.target.value};
       updatedCart.pizzas.splice(foundIndex,1,updatedPizza);
       setCart({pizzas:[...updatedCart.pizzas]})
     }
@@ -37,9 +37,13 @@ export default function CartItem({pizza, count}) {
           <h3>{count < 9 ? "0"+(count+1)+"." : (count+1)+"."} {capitalizeFirstLetter(pizza.name)} </h3>
         </div>
         <div className="price">
-          <p onClick={deleteFromCart}>❌</p>
-          <input type="number" name="amount" value={pizza.quantity} min="1" max="99" autoComplete="off" onChange={changeAmount}/>
-          <h4>{pizza.price} €</h4>
+          <div className="quantity-input">
+            <p className="delete-button" onClick={deleteFromCart}>🗑</p>
+            <input type="number" name="amount" value={pizza.quantity} min="1" max="99" autoComplete="off" onChange={changeAmount}/>
+            <p className="multiplied">X</p>
+            <h4>{pizza.price} €</h4>
+          </div>
+          <h4>{pizza.price*pizza.quantity} €</h4>
         </div>
       </div>
       <hr />
