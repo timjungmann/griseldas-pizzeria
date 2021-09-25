@@ -11,6 +11,7 @@ export default function Cart() {
   })
   
   const placeOrder = () => {
+    console.log(cart);
     async function createOrder(){
       const fetchedData = await(await fetch("http://localhost:5000/orders",{
         method: "POST",
