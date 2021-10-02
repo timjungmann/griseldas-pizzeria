@@ -115,7 +115,7 @@
   .app-container{
     .inner-container{
       grid-template-columns: $bor-rad auto $bor-rad;
-      grid-template-rows: auto auto 60px;
+      grid-template-rows: minmax(auto, 110px) auto 60px;
       .center-center{
         border: $bor;
         border-bottom-left-radius: $bor-rad;
@@ -189,7 +189,7 @@
   .app-container{
     .inner-container{
       grid-template-columns: $bor-rad auto $bor-rad;
-      grid-template-rows: auto auto $bor-rad;
+      grid-template-rows: minmax(auto, 100px) auto $bor-rad;
       .bottom-center{
         .social-icons{
           display: none;

@@ -35,6 +35,10 @@ h3 i{
   h1{
     font-size: 38px;
   }
+
+  h2, h3, h4, .big-text{
+    font-size: 32px;
+  }
 }
 
 @media only screen and (max-width: 340px){
