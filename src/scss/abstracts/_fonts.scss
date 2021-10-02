@@ -9,7 +9,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1, h2, h3, h4, .big-text{
+h1{
+  font-size: 48px;
+  font-family: 'Pomfret','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight:700;
+}
+
+h2, h3, h4, .big-text{
   font-size: 38px;
   font-family: 'Pomfret','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight:700;
@@ -20,12 +26,19 @@ h5{
   font-family: 'Pomfret','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1{
-  font-size: 48px;
-  // text-shadow: -2px -2px 0 #F2E9C6, 2px -2px 0 #F2E9C6, -2px 2px 0 #F2E9C6, 2px 2px 0 #F2E9C6;
-}
-
 h3 i{
   font-size: 18px;
   color: green;
+}
+
+@media only screen and (max-width: 600px){
+  h1{
+    font-size: 38px;
+  }
+}
+
+@media only screen and (max-width: 340px){
+  h1{
+    font-size: 32px;
+  }
 }

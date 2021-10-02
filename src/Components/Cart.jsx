@@ -29,7 +29,8 @@ export default function Cart() {
   if(!orderId){
     return (
       <div className="cart-container">
-        {cart.pizzas.length === 0 ? <p className="nothing-inside big-text">You have no pizzas in your cart yet.</p> :cartItems}
+        {cart.pizzas.length > 0 ? <h3>Your Cart:</h3> : null}
+        {cart.pizzas.length === 0 ? <p className="nothing-inside big-text">You have no pizzas in your cart yet.</p> : cartItems}
         <div className="cart-footer">
           <div className="cart-footer-inner">
             <h2>Total: {cartTotal === 0 ? "0.00" : Math.round((cartTotal + Number.EPSILON) * 100) / 100} €</h2>

@@ -1,66 +1,152 @@
 .pizza-list-container{
   .pizza-list-item{
-    padding: 0 20px;
+    padding-right: 20px;
     margin-bottom: 20px;
     border: 1px solid black;
     border-radius: 3px;
     overflow: hidden;
     height: 200px;
     display: grid;
-    grid-template-columns: 50px 200px auto fit-content(100%);
-    gap: 20px;
-    .pizza-number{
-      text-align: center;
-      padding: 10px 0;
-    }
-    .pizza-image{
-      height: 200px;
-      overflow:hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img{
-        height: 100%;
+    grid-template-columns: 275px auto;
+    .pizza-nr-img{
+      display:grid;
+      grid-template-columns: 75px 200px;
+      .pizza-number{
+        width:100%;
+        text-align: center;
+        padding: 10px 0;
       }
-    }
-    .pizza-details{
-      padding: 10px 0;
-      text-align: center;
-      h3{
-        margin-bottom: 15px;
-      }
-      hr{
-        border: none;
-        border-bottom: 1px solid black;
-        background-color: black;
-        color: black;
-        width: 60%;
-        margin: auto;
-        margin-bottom: 15px;
-      }
-      .pizza-desc{
-        margin-bottom: 20px;
-      }
-    }
-    .pizza-menu{
-      padding: 10px 0;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: fit-content(100%) auto;
-      .price, .order{
-        @include flex;
-        button{
-          cursor: pointer;
-          background-color: #e9bd2b;
-          height: 100px;
-          width: 100px;
-          border:none;
-          font-size: 18px;
+      .pizza-image{
+        height: 200px;
+        overflow:hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          height: 100%;
         }
       }
-      .order{
-        button{
-          transition: border-radius .4s;
+    }
+    .pizza-det-menu{
+      display:grid;
+      grid-template-columns: auto fit-content(100%);
+      .pizza-details{
+        padding: 10px 20px;
+        text-align: center;
+        h3{
+          margin-bottom: 15px;
+        }
+        hr{
+          border: none;
+          border-bottom: 1px solid black;
+          background-color: black;
+          color: black;
+          width: 60%;
+          margin: auto;
+          margin-bottom: 15px;
+        }
+        .pizza-desc{
+          margin-bottom: 20px;
+        }
+      }
+      .pizza-menu{
+        padding: 10px 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: fit-content(100%) auto;
+        .price, .order{
+          @include flex;
+          button{
+            cursor: pointer;
+            background-color: #e9bd2b;
+            height: 100px;
+            width: 100px;
+            border:none;
+            font-size: 18px;
+          }
+        }
+        .order{
+          button{
+            transition: border-radius .4s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .pizza-list-container{
+    .pizza-list-item{
+      padding-right: 10px;
+      height: auto;
+      position: relative;
+      grid-template-columns: 200px auto;
+      .pizza-nr-img{
+        grid-template-columns: 200px;
+        .pizza-number{
+          padding: 5px 10px;
+          width: fit-content;
+          position:absolute;
+          left:0;
+          top:0;
+          color:#FAF6E9;
+          text-shadow: -1px -1px 0 rgba(0, 0, 0,.4), 1px -1px 0 rgba(0, 0, 0,.4), -1px 1px 0 rgba(0, 0, 0,.4), 1px 1px 0 rgba(0, 0, 0,.4);
+          background-color: none;
+        }
+        .pizza-image{
+          height: 100%;
+        }
+      }
+      .pizza-det-menu{
+        .pizza-details{
+          
+        }
+        .pizza-menu{
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .pizza-list-container{
+    .pizza-list-item{
+      padding:0;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      .pizza-nr-img{
+        display:grid;
+        grid-template-columns: 1fr;
+        .pizza-number{
+        }
+        .pizza-image{
+          width:100%;
+          height:fit-content;
+          img{
+            width:100%;
+            height:auto;
+          }
+        }
+      }
+      .pizza-det-menu{
+        display:grid;
+        grid-template-columns: 1fr;
+        .pizza-details{
+          padding: 10px 20px;
+          text-align: center;
+        }
+        .pizza-menu{
+          padding: 10px 0 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr;
+          .price, .order{
+          }
+          .order{
+            button{
+            }
+          }
         }
       }
     }

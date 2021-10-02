@@ -1,11 +1,11 @@
 .pizza-list-container{
   width: 100%;
   .pizza-list-header{
-    padding-right: 50px;
+    margin-bottom:20px;
+    padding-right: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
     .search-container{
       input{
         @include text-input
@@ -29,5 +29,44 @@
   }
   .nothing-found{
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1000px){
+  .pizza-list-container{
+    .pizza-list-header{
+      h2{
+        display:none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .pizza-list-container{
+    .pizza-list-header{
+      display: initial;
+      .vegan-check{
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .pizza-list-container{
+    .pizza-list-header{
+      .search-container{
+        input{
+          width: 100%;
+        }
+        button{
+          margin:10px 10px 0px 0px;
+        }
+        #reset-button{
+          margin:0;
+        }
+      }
+    }
   }
 }

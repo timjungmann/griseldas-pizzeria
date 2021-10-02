@@ -28,12 +28,15 @@ export default function PizzaItem({pizza, count}) {
 
   return (
     <div key={count} className="pizza-list-item">
-      <div className="pizza-number">
+      <div className="pizza-nr-img">
+        <div className="pizza-number">
           <h3>{count < 9 ? "0"+(count+1)+"." : (count+1)+"."}</h3>
         </div>
         <div className="pizza-image">
           <img src={pizza.image} alt="Pizza Image" />
         </div>
+      </div>
+      <div className="pizza-det-menu">
         <div className="pizza-details">
           <h3>{capitalizeFirstLetter(pizza.name)} {pizza.isVeg ? <i class="fas fa-seedling"></i> : null}</h3>
           <hr/>
@@ -54,5 +57,6 @@ export default function PizzaItem({pizza, count}) {
           </div>
         </div>
       </div>
+    </div>
   )
 }

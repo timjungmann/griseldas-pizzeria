@@ -44,19 +44,21 @@ function App() {
                 <h1>Griselda's Pizzeria</h1>
               </Link>
             </div>
-            <div className="header-menu" activeClassName="selected">
-              <NavLink to="/" exact>
-                <p>Menu</p>
-              </NavLink>
-              <NavLink to="/order" activeClassName="selected">
-                <p>Order</p>
-              </NavLink>
-              <NavLink to="/cart" activeClassName="selected">
-                <p>Cart</p>
-              </NavLink>
-            </div>
-            <div className="cart-icon">
-              {cart.pizzas.length} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
+            <div class="header-menu-cart">
+              <div className="header-menu" activeClassName="selected">
+                <NavLink to="/" exact>
+                  <p>Menu</p>
+                </NavLink>
+                <NavLink to="/order" activeClassName="selected">
+                  <p>Order</p>
+                </NavLink>
+                <NavLink to="/cart" activeClassName="selected">
+                  <p>Cart</p>
+                </NavLink>
+              </div>
+              <div className="cart-icon">
+                {cart.pizzas.length} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
+              </div>
             </div>
           </div>
           <div className="top-right field"></div>
