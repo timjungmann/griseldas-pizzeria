@@ -47,19 +47,13 @@
       }
     }
   }
-  .cart-footer{
+  .order-footer{
     display: flex;
     justify-content: flex-end;
-    .cart-footer-inner{
-      h2{
+    .order-footer-inner{
+      h3{
         text-align:end;
         margin-right: 20px;
-      }
-      button{
-        @include button;
-        float:right;
-        width: 100px;
-        margin: 10px 20px 10px 0;
       }
     }
   }
@@ -70,5 +64,78 @@
   }
   .nothing-inside{
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1000px){
+  .order-container{
+    h3, h4{
+      font-size:32px;
+    }
+    .order-item{
+      padding: 5px 20px;
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      .name{
+        margin: 0;
+      }
+      .price{
+        width: 100%;
+        .quantity{
+          .multiplied{
+            margin-left:0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .order-container{
+    .order-search{
+      input{
+        width:100%;
+        max-width:300px;
+        margin:auto;
+      }
+      button{
+        width: fit-content;
+        margin-top:20px;
+      }
+    }
+    .order-header{
+      h3{
+        line-break: anywhere;
+      }
+    }
+    .order-item{
+      padding: 5px 0;
+      .name{
+        margin: 0;
+      }
+      .price{
+        width: 100%;
+        .quantity-input{
+          .delete-button{
+            margin: 0 20px 0 0;
+          }
+          .multiplied{
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+    .order-footer{
+      .order-footer-inner{
+        h3{
+          margin-right: 0;
+        }
+        button{
+          margin: 10px 0;
+        }
+      }
+    }
   }
 }

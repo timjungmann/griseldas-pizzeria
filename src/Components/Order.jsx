@@ -65,9 +65,9 @@ export default function Order() {
           <p>placed on {(new Date(foundOrder.createdAt)+"").slice(0,24)}</p>
         </div>
         {orderItems}
-        <div className="cart-footer">
-          <div className="cart-footer-inner">
-            <h2>Total: {orderTotal}€</h2>
+        <div className="order-footer">
+          <div className="order-footer-inner">
+            <h3>Total: {orderTotal}€</h3>
           </div>
         </div>
       </div>
