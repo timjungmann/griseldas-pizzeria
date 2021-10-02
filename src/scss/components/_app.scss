@@ -38,14 +38,22 @@
       align-items: center;
       justify-content: space-between;
       .logo-image{
-        display: flex;
-        align-items: center;
+        a{
+          display: flex;
+          align-items: center;
+        }
         img{
-          height: 50px;
-          margin-right: 20px;
+          height: 70px;
+          margin-right: 10px;
+        }
+        a:hover{
+          text-decoration: none;
         }
       }
       .header-menu{
+        p{
+          font-size: 18px;
+        }
         display: flex;
         width: 200px;
         justify-content: space-between;
@@ -85,8 +93,11 @@
       justify-content:flex-end;
       align-items: center;
       .social-icons{
-        font-size: 24px;
-        display: grid;
+        i{
+          font-size: 28px ;
+        }
+        display: flex;
+        align-items: center;
         gap: 10px;
         grid-template-columns: repeat(4, fit-content(100%));
       }

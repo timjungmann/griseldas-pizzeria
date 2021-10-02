@@ -10,4 +10,22 @@
   border:none;
   border-radius: 4px;
   padding: 10px;
+  a:hover{
+    text-decoration:none;
+  }
+}
+
+@mixin text-input{
+  background-color: rgba(255, 255, 255, .6);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  width: 300px;
+  &:focus{
+    outline:none;
+    background-color: rgba(255, 255, 255, .8);
+    &::placeholder{
+      opacity: 0;
+    }
+  }
 }

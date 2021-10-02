@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link, NavLink} from "react-router-dom";
 import PizzaList from "./Components/PizzaList";
 import PizzaContext from "./Context/PizzaContext";
 import Admin from "./Components/Admin";
 import Cart from "./Components/Cart";
+import Order from "./Components/Order";
 
 function App() {
   const [pizza, setPizza] = useState([]);
@@ -38,21 +39,21 @@ function App() {
           <div className="top-left field"></div>
           <div className="top-center field">
             <div className="logo-image">
-              <img src={process.env.PUBLIC_URL + "kumamon.png"} alt="Kumamon Logo"/>
               <Link to="/">
-                <h1>Kumamon's Pizzeria</h1>
+                <img src={process.env.PUBLIC_URL + "logo.png"} alt="Logo"/>
+                <h1>Griselda's Pizzeria</h1>
               </Link>
             </div>
-            <div className="header-menu">
-              <Link to="/" exact>
+            <div className="header-menu" activeClassName="selected">
+              <NavLink to="/" exact>
                 <p>Menu</p>
-              </Link>
-              <Link to="/admin">
-                <p>Admin</p>
-              </Link>
-              <Link to="/cart">
+              </NavLink>
+              <NavLink to="/order" activeClassName="selected">
+                <p>Order</p>
+              </NavLink>
+              <NavLink to="/cart" activeClassName="selected">
                 <p>Cart</p>
-              </Link>
+              </NavLink>
             </div>
             <div className="cart-icon">
               {cart.pizzas.length} <Link to="/cart"><i class="fas fa-shopping-cart"></i></Link>
@@ -71,6 +72,9 @@ function App() {
                 </Route>
                 <Route path="/cart" exact>
                   <Cart/>
+                </Route>
+                <Route path="/order" exact>
+                  <Order/>
                 </Route>
               </Switch>
             </PizzaContext.Provider>

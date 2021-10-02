@@ -4,20 +4,20 @@ import PizzaContext from '../Context/PizzaContext';
 
 export default function PizzaList({selection, setSelection}) {
   const {pizza} = useContext(PizzaContext);
-  const [vegan, setVegan] = useState(false);
+  const [veg, setVeg] = useState(false);
   const [search, setSearch] = useState("");
 
   const pizzaItems = selection.map((item, index)=>{
     return <PizzaItem pizza={item} count={index}/>
   })
 
-  function veganChange(){
-    setVegan(!vegan);
-    if(!vegan){
-      const veganPizzas = selection.filter(item=>{
-        return item.isVegan===true;
+  function vegChange(){
+    setVeg(!veg);
+    if(!veg){
+      const vegPizzas = selection.filter(item=>{
+        return item.isVeg===true;
       })
-      setSelection(veganPizzas);
+      setSelection(vegPizzas);
     } else{
       setSelection(pizza);
     }
@@ -29,18 +29,18 @@ export default function PizzaList({selection, setSelection}) {
       const filteredSelection = pizza.filter(item=>{
       return item.name.toLowerCase().includes(search.toLowerCase()) || item.description.toLowerCase().includes(search.toLowerCase()) || item.ingredients.join(" ").toLowerCase().includes(search.toLowerCase());
       })
-      if(vegan){
-        const filteredAndVegan = filteredSelection.filter(item=>{
-          return item.isVegan===true;
+      if(veg){
+        const filteredAndVeg = filteredSelection.filter(item=>{
+          return item.isVeg===true;
         })
-        setSelection(filteredAndVegan);
+        setSelection(filteredAndVeg);
       } else setSelection(filteredSelection)
     }
   }
 
   function resetSearch(){
     setSelection(pizza);
-    setVegan(false);
+    setVeg(false);
     setSearch("")
   }
 
@@ -54,8 +54,8 @@ export default function PizzaList({selection, setSelection}) {
           <button onClick={resetSearch} id="reset-button">Reset</button>
         </div>
         <div className="vegan-check">
-          <input type="checkbox" name="vegan" id="vegan" onChange={veganChange} checked={vegan}/>
-          <label htmlFor="vegan">vegan <i class="fas fa-seedling"></i></label>
+          <input type="checkbox" name="veg" id="veg" onChange={vegChange} checked={veg}/>
+          <label htmlFor="veg">vegetarian <i class="fas fa-seedling"></i></label>
         </div>
       </div>
       {selection.length>0 ? pizzaItems : <h3 className="nothing-found">Sorry.... no pizza found for your search. Try again.</h3>}

@@ -35,7 +35,7 @@ export default function PizzaItem({pizza, count}) {
           <img src={pizza.image} alt="Pizza Image" />
         </div>
         <div className="pizza-details">
-          <h3>{capitalizeFirstLetter(pizza.name)} {pizza.isVegan ? <i class="fas fa-seedling"></i> : null}</h3>
+          <h3>{capitalizeFirstLetter(pizza.name)} {pizza.isVeg ? <i class="fas fa-seedling"></i> : null}</h3>
           <hr/>
           <p className="pizza-desc">{capitalizeFirstLetter(pizza.description)}</p>
           <p><b>Ingredients:</b> {capitalizeFirstLetter(pizza.ingredients.join(", "))}</p>
