@@ -8,25 +8,13 @@ export default function AdminNewItem() {
   const [price, setPrice] = useState("");
   const [vegan, setVegan] = useState(false);
 
-  // function submitHandler(e){
-  //   e.preventDefault();
-  //   addPizza();
-  //   setName("");
-  //   setDescription("");
-  //   setIngredients("");
-  //   setImage("");
-  //   setPrice("");
-  //   setVegan(false);
-  //   console.log(name, description, ingredients, image, price, vegan)
-  // }
-
   function submitHandler(e){
     e.preventDefault();
     const newPizza = {name: name, description: description, ingredients:ingredients, image:image, price:price, isVegan:vegan};
     async function addPizza(){
-      const fetchedData = await(await fetch("http://localhost:5000/pizzas",{
+      const fetchedData = await(await fetch("https://griseldas-pizzeria-api.vercel.app/pizzas",{
         method: "POST",
-        headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+        headers: {"Content-Type": "application/json", "Origin": "https://griseldas-pizzeria-client.vercel.app/"},
         body: JSON.stringify(newPizza)}
       )).json();
     };
@@ -72,7 +60,7 @@ export default function AdminNewItem() {
           <input type="checkbox" id="vegan" onChange={()=>setVegan(!vegan)} checked={vegan}/>
         </div>
 
-        <button type="submit">create</button>
+        <button type="submit" disabled>create</button>
       </form>
   
     </div>

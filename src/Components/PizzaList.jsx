@@ -58,7 +58,7 @@ export default function PizzaList({selection, setSelection}) {
           <label htmlFor="veg">vegetarian <i class="fas fa-seedling"></i></label>
         </div>
       </div>
-      {selection.length>0 ? pizzaItems : <h3 className="nothing-found">Sorry.... no pizza found for your search. Try again.</h3>}
+      {selection.length>0 ? pizzaItems : <h3 className="nothing-found">Loading...</h3>}
     </div>
   )
 }

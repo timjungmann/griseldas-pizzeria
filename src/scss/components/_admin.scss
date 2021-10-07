@@ -50,3 +50,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media only screen and (max-width: 1000px){
+  .admin-container{
+    .admin-items, .admin-add{
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .admin-container{
+    .admin-items, .admin-add{
+      .admin-item{
+        form{
+          .form-row{
+            grid-template-columns: 1fr;
+          }
+        }
+        input{
+          margin-right: 00px;
+        }
+      }
+    }
+  }
+}

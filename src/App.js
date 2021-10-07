@@ -24,7 +24,7 @@ function App() {
   }, [cart]);
 
   useState(async()=>{
-    const data = await (await fetch("http://localhost:5000/pizzas")).json();
+    const data = await (await fetch("https://griseldas-pizzeria-api.vercel.app/pizzas")).json();
     const sortedData = data.sort(function(a, b) {
       return parseFloat(a.price) - parseFloat(b.price);
     });

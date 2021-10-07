@@ -21,7 +21,7 @@ export default function Order() {
   
   const getOrder = async() => {
     try {
-      const fetchedData = await(await fetch(`http://localhost:5000/orders/${orderId}`)).json();
+      const fetchedData = await(await fetch(`https://griseldas-pizzeria-api.vercel.app/orders/${orderId}`)).json();
       console.log(fetchedData);
       if(!fetchedData.pizzas){
         setNoOrder(true);

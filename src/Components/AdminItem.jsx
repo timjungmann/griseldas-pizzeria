@@ -9,21 +9,21 @@ export default function AdminItem({pizza, count}) {
   const [vegan, setVegan] = useState(pizza.isVegan);
   
 
-  async function deletePizza(){
-    const fetchedData = await(await fetch(`http://localhost:5000/pizzas/${pizza._id}`,{
-      method: "DELETE",
-      headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"}}
-    )).json();
-  };
+  // async function deletePizza(){
+  //   const fetchedData = await(await fetch(`https://griseldas-pizzeria-api.vercel.app/pizzas/${pizza._id}`,{
+  //     method: "DELETE",
+  //     headers: {"Content-Type": "application/json", "Origin": "https://griseldas-pizzeria-client.vercel.app/"}}
+  //   )).json();
+  // };
 
 
   function submitHandler(e){
     e.preventDefault();
     const pizzaData = {name: name, description: description, ingredients:ingredients, image:image, price:price, isVegan:vegan};
     async function updatePizza(){
-      const fetchedData = await(await fetch(`http://localhost:5000/pizzas/${pizza._id}`,{
+      const fetchedData = await(await fetch(`https://griseldas-pizzeria-api.vercel.app/pizzas/${pizza._id}`,{
         method: "PUT",
-        headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+        headers: {"Content-Type": "application/json", "Origin": "https://griseldas-pizzeria-client.vercel.app/"},
         body: JSON.stringify(pizzaData)}
       )).json();
     }
@@ -66,8 +66,8 @@ export default function AdminItem({pizza, count}) {
           <input type="checkbox" id="vegan" checked={vegan ? true : false} onChange={(e)=>setVegan(e.target.value)}/>
         </div>
 
-        <button type="submit">save changes</button>
-        <button onClick={deletePizza}>delete</button>
+        <button type="submit" disabled>save changes</button>
+        {/* <button onClick={deletePizza}>delete</button> */}
       </form>
   
     </div>

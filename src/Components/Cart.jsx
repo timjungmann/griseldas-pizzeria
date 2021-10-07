@@ -14,9 +14,9 @@ export default function Cart() {
   const placeOrder = () => {
     if(cart.pizzas.length>0){
       async function createOrder(){
-        const fetchedData = await(await fetch("http://localhost:5000/orders",{
+        const fetchedData = await(await fetch("https://griseldas-pizzeria-api.vercel.app/orders",{
           method: "POST",
-          headers: {"Content-Type": "application/json", "Origin": "http://localhost:3000"},
+          headers: {"Content-Type": "application/json", "Origin": "https://griseldas-pizzeria-client.vercel.app/"},
           body: JSON.stringify(cart)}
         )).json();
         setOrderId(fetchedData._id);
