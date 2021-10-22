@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Griselda's Pizzeria
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Concept, Design & Development: Tim Jungmann
 
-## Available Scripts
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-In the project directory, you can run:
+### A made-up Pizzeria's responsive website, where you can browse the menu, place pizzas in your cart, place an order and find it again by ID.
 
-### `npm start`
+[try it out ↗︎](griseldas-pizzeria-client.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[API repository ↗︎](https://github.com/timjungmann/griseldas-pizzeria-api)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Menu:
+- browse selection of pizzas
+- click 'Order' to put pizza in your cart
+- use search field to find pizza by search term
+- click 'Reset' to reset your search
+- check or uncheck 'vegetarian' checkbox to filter for vegetarian options
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="/readme-img/griseldas-menu.png" height="400"/>
 
-### `npm run build`
+Cart:
+- see what's in your cart and total price
+- edit quantity in the input field
+- click 🗑 &nbsp;to remove pizza from cart
+- click 'Place order' and get an ID for your order
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="/readme-img/griseldas-cart.png" height="400"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Order:
+- put your order ID in the input field and click 'Find order'
+- see your order with all items, quantities, price and time of placement
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="/readme-img/griseldas-order.png" height="400"/>
 
-### `npm run eject`
+Admin:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+*not connected to DB*
+- add new pizza to your database, it will be shown in the menu then
+- see all pizzas already in your database
+- edit pizzas, edit or delete them through the interface
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="/readme-img/griseldas-admin.png" height="400"/>
