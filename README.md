@@ -23,7 +23,7 @@ Menu:
 - check or uncheck 'vegetarian' checkbox to filter for vegetarian options
 
 
-<img src="/readme-img/griseldas-menu.png" height="400"/>
+<img src="/readme-img/griseldas-menu.png" width="700"/>
 
 Cart:
 - see what's in your cart and total price
@@ -31,13 +31,13 @@ Cart:
 - click 🗑 &nbsp;to remove pizza from cart
 - click 'Place order' and get an ID for your order
 
-<img src="/readme-img/griseldas-cart.png" height="400"/>
+<img src="/readme-img/griseldas-cart.png" width="700"/>
 
 Order:
 - put your order ID in the input field and click 'Find order'
 - see your order with all items, quantities, price and time of placement
 
-<img src="/readme-img/griseldas-order.png" height="400"/>
+<img src="/readme-img/griseldas-order.png" width="700"/>
 
 Admin:
 
@@ -46,4 +46,4 @@ Admin:
 - see all pizzas already in your database
 - edit pizzas, edit or delete them through the interface
 
-<img src="/readme-img/griseldas-admin.png" height="400"/>
+<img src="/readme-img/griseldas-admin.png" width="700"/>
